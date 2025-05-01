@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 162 47% 30%;
+    --primary: 160 50% 25%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -30,7 +30,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 160 50% 25%;
 
     --radius: 0.5rem;
   }
@@ -45,7 +45,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 162 47% 50%;
+    --primary: 160 50% 35%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -62,7 +62,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 160 50% 35%;
   }
 }
 
@@ -72,91 +72,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply tracking-tight;
-  }
-  p {
-    @apply leading-relaxed;
-  }
-}
-
-/* Improved focus styles for accessibility */
-:focus-visible {
-  @apply outline-2 outline-offset-2 outline-teal-600;
-}
-
-/* Skip to content link for keyboard users */
-.skip-to-content {
-  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-teal-700 focus:shadow-lg focus:rounded;
-}
-
-/* Improved link underlines */
-.hover-underline {
-  @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
-}
-
-/* Improved card hover effects */
-.card-hover {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-}
-
-/* Improved image hover effects */
-.image-hover {
-  @apply transition-all duration-500 hover:scale-105;
-}
-
-/* Improved button hover effects */
-.button-hover {
-  @apply transition-all duration-300 hover:shadow-md hover:-translate-y-0.5;
-}
-
-/* Improved accessibility for screen readers */
-.sr-only {
-  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
-}
-
-/* Print styles */
-@media print {
-  nav,
-  footer,
-  button,
-  .no-print {
-    display: none !important;
-  }
-  body {
-    font-size: 12pt;
-    line-height: 1.5;
-    color: #000;
-    background: #fff;
-  }
-  a {
-    text-decoration: underline;
-    color: #000;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-  }
-  img {
-    max-width: 100% !important;
-    page-break-inside: avoid;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
   }
 }

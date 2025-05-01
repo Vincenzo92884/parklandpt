@@ -1,139 +1,123 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone } from "lucide-react"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Menu, Phone } from "lucide-react"
+import Logo from "@/components/logo"
+
+const navigation = [
+  { name: "Home", href: "/#top" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Team", href: "/#team" },
+  { name: "Contact", href: "/contact" },
+]
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Handle smooth scrolling for hash links
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Only handle hash links on the current page
+    if (href.startsWith("/#") && window.location.pathname === "/") {
+      e.preventDefault()
+      const targetId = href.substring(2)
+
+      if (targetId === "top") {
+        // Scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
+      } else {
+        // Scroll to element
+        const targetElement = document.getElementById(targetId)
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100, // Offset for header
+            behavior: "smooth",
+          })
+        }
+      }
+
+      setMobileMenuOpen(false)
+    }
+  }
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2" aria-label="Parkland PT Home">
-            <div className="relative h-16 w-16 md:h-20 md:w-20">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Parkland-PTTt-1-CGBMoeogRsCTefiHkZTQWY5qP1ePCy.png"
-                alt="Parkland PT Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div className="hidden md:block">
-              <span className="text-2xl font-bold text-teal-800">Parkland PT</span>
-              <span className="text-sm block text-gray-600">A Quality In Home Therapy Service</span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6" aria-label="Main Navigation">
-            <Link href="/" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              Services
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              About
-            </Link>
-            <Link href="/faq" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              FAQ
-            </Link>
-            <Link href="/blog" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-teal-700 font-medium hover-underline">
-              Contact
-            </Link>
-          </nav>
-
-          {/* Phone Button */}
-          <div className="hidden md:block">
-            <Button asChild className="bg-teal-700 hover:bg-teal-800 button-hover">
-              <a href="tel:9545931735" className="flex items-center gap-2">
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span>(954) 593-1735</span>
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+    <header className="bg-white shadow-sm sticky top-0 z-50">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+        <div className="flex lg:flex-1">
+          <Logo className="-m-1.5" />
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div id="mobile-menu" className="md:hidden bg-white border-t" aria-label="Mobile Navigation">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/faq"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/blog"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-teal-700 font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Button asChild className="bg-teal-700 hover:bg-teal-800 w-full">
-              <a href="tel:9545931735" className="flex items-center justify-center gap-2">
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span>(954) 593-1735</span>
-              </a>
-            </Button>
-          </div>
+        <div className="flex lg:hidden">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              >
+                <span className="sr-only">Open main menu</span>
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full">
+              <div className="mt-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <div className="space-y-2 py-6">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={(e) => handleClick(e, item.href)}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="py-6">
+                    <Button asChild className="w-full">
+                      <Link href="/appointment" onClick={() => setMobileMenuOpen(false)}>
+                        Book Appointment
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-      )}
+
+        <div className="hidden lg:flex lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-teal-600"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-4">
+          <div className="flex items-center">
+            <Phone className="h-4 w-4 text-teal-600 mr-2" />
+            <span className="text-sm font-semibold">(954) 593-1735</span>
+          </div>
+          <Button asChild className="bg-teal-600 hover:bg-teal-700">
+            <Link href="/appointment">Book Appointment</Link>
+          </Button>
+        </div>
+      </nav>
     </header>
   )
 }

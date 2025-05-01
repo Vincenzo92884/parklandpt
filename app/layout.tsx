@@ -2,96 +2,68 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import Script from "next/script"
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap", // Improve font loading performance
-  variable: "--font-inter", // Allow usage as a CSS variable
-})
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Parkland PT | In-Home Physical Therapy for Seniors & Parkinson's Disease",
-    template: "%s | Parkland PT - Quality In Home Therapy",
-  },
+  title: "Parkland PT | In-Home Physical Therapy by Dr. Vincenzo Bombara",
   description:
-    "Board-Certified Geriatric Clinical Specialist providing Medicare-covered in-home physical therapy for seniors 65+ and Parkinson's Disease patients in Parkland, FL and surrounding areas.",
+    "Specialized in-home physical therapy services in Parkland by Dr. Vincenzo Bombara, DPT, GCS, MBA. Board-Certified Geriatric Specialist providing personalized treatment plans for seniors in the comfort of their home.",
   keywords: [
-    "physical therapy",
-    "senior physical therapy",
-    "geriatric clinical specialist",
-    "board certified GCS",
-    "Parkinson's Disease therapy",
     "in-home physical therapy",
-    "Medicare physical therapy",
-    "Parkland physical therapy",
-    "South Florida senior care",
-    "fall prevention",
-    "balance therapy",
-    "mobility training",
-    "post-surgery rehabilitation",
+    "Parkland PT",
     "Dr. Vincenzo Bombara",
-    "Quality In Home Therapy",
-    "vestibular rehabilitation",
-    "arthritis management",
-    "elderly rehabilitation",
-    "senior strength training",
-    "home health physical therapy",
+    "geriatric physical therapy",
+    "senior physical therapy",
+    "LSVT BIG",
+    "Parkinson's therapy",
+    "home therapy",
+    "South Florida physical therapy",
+    "Parkland physical therapist",
+    "in-home rehabilitation",
+    "mobility therapy",
+    "balance therapy",
+    "fall prevention",
+    "orthopedic therapy",
+    "neurological rehabilitation",
   ],
-  authors: [{ name: "Dr. Vincenzo Bombara, DPT, GCS, MBA" }],
-  creator: "Dr. Vincenzo Bombara, DPT, GCS, MBA",
+  authors: [{ name: "Dr. Vincenzo Bombara", url: "https://vincenzobombara.com" }],
+  creator: "Dr. Vincenzo Bombara",
+  publisher: "Quality In-Home Therapy",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://parklandpt.com",
-    siteName: "Parkland PT - Quality In Home Therapy",
-    title: "In-Home Physical Therapy for Seniors & Parkinson's Disease | Medicare Accepted",
+    siteName: "Parkland PT",
+    title: "Parkland PT | Quality In-Home Physical Therapy Services",
     description:
-      "Board-Certified Geriatric Specialist providing expert physical therapy in the comfort of your home. Serving Parkland, Coral Springs, Deerfield Beach, and surrounding areas.",
+      "Expert in-home physical therapy services in Parkland. Specialized care for seniors, including geriatric therapy, LSVT BIG for Parkinson's, and neurological rehabilitation.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Parkland PT - Specialized In-Home Physical Therapy for Seniors",
+        alt: "Parkland PT - Quality In-Home Therapy Service",
       },
     ],
   },
-  alternates: {
-    canonical: "https://parklandpt.com",
+  twitter: {
+    card: "summary_large_image",
+    title: "Parkland PT | In-Home Physical Therapy",
+    description:
+      "Expert in-home physical therapy services in Parkland. Specialized care for seniors by Dr. Vincenzo Bombara, DPT, GCS, MBA.",
+    images: ["/og-image.png"],
+    creator: "@ParklandPT",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "In-Home Physical Therapy for Seniors & Parkinson's Disease | Parkland PT",
-    description: "Board-Certified Geriatric Specialist providing expert physical therapy in the comfort of your home.",
-    images: ["/images/og-image.jpg"],
-  },
-  verification: {
-    google: "verification_token",
-  },
-  category: "Healthcare",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0f766e" },
-    { media: "(prefers-color-scheme: dark)", color: "#14b8a6" },
-  ],
-  formatDetection: {
-    telephone: true,
-    address: true,
-    email: true,
+  alternates: {
+    canonical: "https://parklandpt.com",
   },
     generator: 'v0.dev'
 }
@@ -102,135 +74,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preload critical resources */}
-        <link
-          rel="preload"
-          href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Parkland-PTTt-1-CGBMoeogRsCTefiHkZTQWY5qP1ePCy.png"
-          as="image"
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={inter.className}>
-        {/* Skip to content link for keyboard users */}
-        <a href="#main-content" className="skip-to-content">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-        <Script id="schema-structured-data" type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "PhysicalTherapist",
-              "name": "Parkland PT - Quality In Home Therapy",
-              "image": "https://parklandpt.com/images/parkland-pt-logo.png",
-              "url": "https://parklandpt.com",
-              "telephone": "(954) 593-1735",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Parkland",
-                "addressRegion": "FL",
-                "postalCode": "33076",
-                "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 26.3128,
-                "longitude": -80.2497
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "18:00"
-              },
-              "sameAs": [
-                "https://qualityinhometherapy.com",
-                "https://vincenzobombara.com"
-              ],
-              "priceRange": "Medicare and Self-Pay Accepted",
-              "servesCuisine": "Physical Therapy Services",
-              "areaServed": ["Parkland", "Coral Springs", "Deerfield Beach", "Coconut Creek", "Boca Raton", "Pompano Beach"],
-              "description": "Board-Certified Geriatric Clinical Specialist providing Medicare-covered in-home physical therapy for seniors 65+ and Parkinson's Disease patients.",
-              "founder": {
-                "@type": "Person",
-                "name": "Dr. Vincenzo Bombara",
-                "jobTitle": "Doctor of Physical Therapy, Geriatric Clinical Specialist",
-                "description": "Board-Certified Geriatric Clinical Specialist with expertise in Parkinson's Disease therapy"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Physical Therapy Services",
-                "itemListElement": [
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Geriatric Physical Therapy",
-                    "description": "Specialized physical therapy for adults 65 and older"
-                  },
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Parkinson's Disease Therapy",
-                    "description": "Specialized movement strategies for Parkinson's Disease patients"
-                  },
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Balance & Fall Prevention",
-                    "description": "Assessment and exercises to improve balance and reduce fall risk"
-                  },
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Post-Surgery Rehabilitation",
-                    "description": "Recovery programs for seniors after surgery"
-                  }
-                ]
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                  },
-                  "author": {
-                    "@type": "Person",
-                    "name": "Robert M."
-                  },
-                  "reviewBody": "Dr. Bombara's expertise in Parkinson's therapy has made a tremendous difference in my mobility. I'm more confident and stable than I've been in years."
-                },
-                {
-                  "@type": "Review",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                  },
-                  "author": {
-                    "@type": "Person",
-                    "name": "Eleanor S."
-                  },
-                  "reviewBody": "Having therapy in my home has been a game-changer. No more stressful trips to the clinic, and the quality of care is exceptional."
-                }
-              ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "47"
-              }
-            }
-          `}
-        </Script>
-        {/* Google Analytics or Tag Manager would go here */}
+      <body id="top" className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

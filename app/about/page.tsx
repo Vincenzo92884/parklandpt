@@ -1,243 +1,157 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import CTASection from "@/components/cta-section"
-import { Award, GraduationCap, Briefcase, Heart } from "lucide-react"
-
-export const metadata = {
-  title: "About Dr. Vincenzo Bombara - Board-Certified Geriatric Clinical Specialist",
-  description:
-    "Dr. Vincenzo Bombara is a Board-Certified Geriatric Clinical Specialist (GCS) with advanced training in Parkinson's Disease therapy and over 10 years of experience in senior rehabilitation.",
-  keywords: [
-    "Dr. Vincenzo Bombara",
-    "Geriatric Clinical Specialist",
-    "Board-Certified GCS",
-    "Parkinson's Disease specialist",
-    "physical therapist Parkland",
-    "senior care specialist",
-    "in-home physical therapy",
-    "Quality In Home Therapy",
-    "DPT GCS MBA",
-    "LSVT BIG certified",
-    "vestibular rehabilitation",
-  ],
-}
+import { CheckCircle } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="bg-teal-50 py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Meet Dr. Vincenzo Bombara</h1>
-              <p className="text-xl text-gray-600 mb-4">DPT, GCS, MBA</p>
-              <p className="text-lg text-gray-600 mb-8">
-                As a Geriatric Clinical Specialist with advanced training in Parkinson's Disease therapy, I'm dedicated
-                to providing the highest quality physical therapy care to seniors in our community.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full">
-                  <Award className="h-5 w-5" />
-                  <span>Geriatric Clinical Specialist</span>
-                </div>
-                <div className="flex items-center gap-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full">
-                  <Heart className="h-5 w-5" />
-                  <span>Parkinson's Specialist</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/elderly-therapy-session.png"
-                alt="Dr. Vincenzo Bombara providing physical therapy"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Qualifications */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Education & Credentials</h2>
-              <p className="text-xl text-gray-600">
-                Dedicated to excellence in geriatric physical therapy through continuous education and specialized
-                training
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex gap-4">
-                    <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-12 w-12 flex items-center justify-center flex-shrink-0">
-                      <GraduationCap className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Doctor of Physical Therapy (DPT)</h3>
-                      <p className="text-gray-600">University of Miami, School of Medicine</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex gap-4">
-                    <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-12 w-12 flex items-center justify-center flex-shrink-0">
-                      <Award className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Geriatric Clinical Specialist (GCS)</h3>
-                      <p className="text-gray-600">American Board of Physical Therapy Specialties</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex gap-4">
-                    <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-12 w-12 flex items-center justify-center flex-shrink-0">
-                      <GraduationCap className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        Master of Business Administration (MBA)
-                      </h3>
-                      <p className="text-gray-600">University of Florida</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex gap-4">
-                    <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-12 w-12 flex items-center justify-center flex-shrink-0">
-                      <Award className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        Parkinson's Disease Specialist Training
-                      </h3>
-                      <p className="text-gray-600">LSVT BIG® Certified Clinician</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  src="/gentle-home-therapy.png"
-                  alt="In-home physical therapy session"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">My Philosophy</h2>
-              <p className="text-lg text-gray-600 mb-6">
-                With over a decade of specialized experience in geriatric rehabilitation, I founded Quality In Home
-                Therapy to address the unique challenges seniors face in accessing quality physical therapy. My approach
-                combines the latest evidence-based techniques with a deep understanding of the aging process and
-                age-related conditions.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                My Board Certification as a Geriatric Clinical Specialist (GCS) represents the highest level of
-                expertise in senior care, requiring extensive clinical experience, continuing education, and passing a
-                rigorous national examination. Only about 1% of all physical therapists achieve this specialized
-                certification in geriatric care.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                I believe that physical therapy should be accessible, personalized, and focused on improving quality of
-                life. As your neighbor and your clinician, I'm committed to bringing high-quality care directly to your
-                home.
-              </p>
-              <Button asChild className="bg-teal-700 hover:bg-teal-800">
-                <Link href="/contact">Schedule a Consultation</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Community Involvement */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Community Involvement</h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Proud to be an active member of the Parkland community, supporting seniors and those with Parkinson's
-              Disease
+    <div className="bg-white">
+      {/* Hero section */}
+      <div className="relative isolate overflow-hidden bg-gradient-to-b from-teal-100/20 pt-14">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">About Us</h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Dedicated to providing exceptional physical therapy care in the Parkland community since 2020.
             </p>
           </div>
+        </div>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PCOC-Logo-Member-300x300-1-3sBxB72RDcrqFnM35QXKaRqpkQ3XaY.png"
-                    alt="Parkland Chamber of Commerce Logo"
-                    width={50}
-                    height={50}
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Parkland Chamber of Commerce</h3>
-                <p className="text-gray-600">
-                  Proud member supporting local businesses and community initiatives in Parkland.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Parkinson's Foundation</h3>
-                <p className="text-gray-600">
-                  Active supporter and volunteer, helping to improve the lives of those living with Parkinson's Disease.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardContent className="p-6">
-                <div className="bg-teal-100 text-teal-800 p-3 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Senior Wellness Programs</h3>
-                <p className="text-gray-600">
-                  Regular contributor to local senior centers, providing education on fall prevention and mobility.
-                </p>
-              </CardContent>
-            </Card>
+      {/* Mission section */}
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Mission</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              At Parkland Physical Therapy, our mission is to provide personalized, evidence-based physical therapy
+              services that help our patients recover from injury, manage chronic conditions, and achieve optimal health
+              and wellness.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              We are committed to creating a supportive and compassionate environment where patients feel valued and
+              empowered to take an active role in their recovery journey.
+            </p>
+          </div>
+          <div className="mt-10 lg:mt-0">
+            <Image
+              src="/about-mission-image.jpg"
+              alt="Physical therapist working with senior patient in home living room"
+              width={800}
+              height={600}
+              className="rounded-2xl shadow-xl"
+            />
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* CTA Section */}
-      <CTASection />
-    </>
+      {/* Values section */}
+      <div className="bg-gray-50 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Core Values</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              These principles guide everything we do at Parkland Physical Therapy.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+              {[
+                {
+                  name: "Patient-Centered Care",
+                  description:
+                    "We put our patients' needs first, creating individualized treatment plans that address their unique goals and challenges.",
+                },
+                {
+                  name: "Clinical Excellence",
+                  description:
+                    "We are committed to providing the highest quality care based on the latest research and best practices in physical therapy.",
+                },
+                {
+                  name: "Compassion & Respect",
+                  description:
+                    "We treat every patient with dignity, empathy, and respect, creating a supportive environment for healing.",
+                },
+                {
+                  name: "Education & Empowerment",
+                  description:
+                    "We educate our patients about their conditions and provide them with the tools to take control of their health.",
+                },
+                {
+                  name: "Integrity & Trust",
+                  description:
+                    "We maintain the highest ethical standards in all our interactions, building trust with our patients and community.",
+                },
+                {
+                  name: "Continuous Improvement",
+                  description:
+                    "We are dedicated to ongoing professional development and constantly improving our services and patient outcomes.",
+                },
+              ].map((value) => (
+                <div key={value.name} className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-xl font-semibold leading-7 text-gray-900">
+                    <CheckCircle className="h-5 w-5 flex-none text-teal-600" aria-hidden="true" />
+                    {value.name}
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <p className="flex-auto">{value.description}</p>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      {/* History section */}
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16 lg:items-center">
+          <div className="lg:col-start-2">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our History</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Parkland Physical Therapy was founded in 2020 by Dr. Vincenzo Bombara, who had a vision of creating a
+              clinic that combined clinical excellence with compassionate care.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              What started as a small practice with just two therapists has grown into a comprehensive physical therapy
+              center serving the Parkland community and surrounding areas. Throughout our growth, we've maintained our
+              commitment to personalized care and positive patient outcomes.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Today, our team of expert therapists continues to uphold Dr. Bombara's vision, helping thousands of
+              patients recover from injuries, manage chronic conditions, and improve their quality of life.
+            </p>
+          </div>
+          <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
+            <Image
+              src="/about-history-image.jpg"
+              alt="Physical therapist helping senior patient with balance exercises at home"
+              width={800}
+              height={600}
+              className="rounded-2xl shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* CTA section */}
+      <div className="bg-teal-600">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready to start your recovery journey?
+            <br />
+            Book an appointment today.
+          </h2>
+          <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+            <Button asChild className="bg-white text-teal-600 hover:bg-gray-100">
+              <Link href="/appointment">Book an Appointment</Link>
+            </Button>
+            <Link href="/contact" className="text-sm font-semibold leading-6 text-white">
+              Contact Us <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
